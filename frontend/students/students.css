@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffffff;
+  display: flex;
+  height: 100vh;
+}
+
+/* === SIDEBAR UNIFORMISÉE (Style dashboard) === */
+.sidebar {
+  width: 220px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  height: 100vh;
+  flex-shrink: 0;
+  box-shadow: 0 0 18px 4px rgb(206, 206, 206);
+
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #e6f0ff;
+  color: #53ACD8;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.main-content h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* === FILTER BOX === */
+.filter-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 18px 4px rgb(206, 206, 206);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 150px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-group button {
+  margin-top: 25px;
+  padding: 10px;
+  background-color: #53ACD8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-group button:hover {
+  background-color: #53ACD8;
+}
+
+/* === TABLE === */
+.table-section {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 18px 4px rgb(206, 206, 206);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #53ACD8;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}

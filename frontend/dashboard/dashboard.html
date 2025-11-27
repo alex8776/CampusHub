@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Gestion Scolaire</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ==== SIDEBAR ==== -->
+  <aside class="sidebar">
+    <img class="logo" src="../images/logo.png" alt="logo">
+    <ul>
+      <li><a href="dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+      <li><a href="..\students\students.html"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="#"><i class="fas fa-book"></i> Subjects</a></li>
+      <li><a href="..\notes\notes.html"><i class="fas fa-pen"></i> Notes</a></li>
+      <li><a href="#"><i class="fas fa-school"></i> Classes</a></li>
+      <li><a href="..\inscription\inscription.html" ><i class="fas fa-user-plus"></i> Inscriptions</a></li>
+    </ul>
+  </aside>
+
+  <!-- ==== MAIN CONTENT ==== -->
+  <main class="main-content">
+
+    <!-- 🔹 STAT CARDS -->
+    <div id="Post">
+      <p id="time">heure</p>
+    </div>
+
+    <div id="Poster">
+      <i>plus</i>
+      <input type="text" id="newPost" placeholder="Créer une nouvelle publication">
+      <button id="sendPost">Envoer</button>
+    </div>
+
+    <aside class="profil">
+      <div id="PP"></div>
+      <h1 id="Nom">nom</h1>
+    </aside>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

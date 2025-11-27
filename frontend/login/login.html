@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LogInAdmin.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="barre_du_haut">
+        <img onclick="window.location.href='../Home/home.html'"  class="logo" src="../images/logo.png" alt="logo">
+        <p onclick="window.location.href='../Home/home.html'" class="home">Home</p>
+        <p onclick="window.location.href='../About US/AboutUs.html'" class="About">About Us</p>
+    </div>
+    <div class="main">
+        <div class="cercle">
+            <img class="fille" src="../images/admin.png" alt="fille">
+        </div>
+        <div class="textes">
+            <p class="p">Connecte-toi à ton espace étudiant.
+            Accède facilement à tes cours, tes notes et toutes les infos importantes de ton parcours. 
+            Entre tes identifiants et reprends là où tu t’es arrêté.</p>
+
+            <p >
+                Entre ton identifiant étudiant et ton mot de passe, puis valide pour accéder à ton espace. 
+                Assure-toi que tes infos sont correctes et garde tes identifiants confidentiels pour sécuriser ton compte.
+            </p>
+        </div>
+        <form onsubmit="window.location.href='../LogoLogInAdmin.html'; return false" class="infos" action="">
+            <img onclick="window.location.href='../Home/home.html'"  class="logo2" src="../images/logo.png" alt="logo">
+            <input type="text" id="idEtudian" name="idEtudian" placeholder="Entrez votre ID (Ex: EADXXXXXBZ25) ">
+            <input type="password" id="passw" name="passw" placeholder="Entrez votre mot de passe ">
+            <p id="errorMsg" style="color: red;"></p>
+            <button type="submit" id="login" >Log In</button>
+            <p class="lien">Log In as Admin</p>
+
+
+      <p id="error-msg" class="error-msg"></p>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
