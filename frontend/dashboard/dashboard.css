@@ -130,3 +130,37 @@ body {
   border-radius: 4px;
   transition: width 0.5s ease;
 }
+@media screen and (max-width: 480px){
+  .profil{
+    display: none;
+  }
+  .sidebar{
+    display: none;
+  }
+  #Poster{
+    width: 100vw;
+    left: 0vw;
+    bottom: 0vh;
+    display: flex;
+    align-items: center;
+  }
+  #newPost{
+    width: 70%;
+    height: 5vh;
+  }
+  #Post{
+    display: flex;
+    width: 80vw;
+  }
+  .bi-x-lg{
+        width: auto;
+        position: absolute;
+        top: 3vh;
+        margin-left: 80vw;
+        animation: fadeln 4s ;
+    }
+    #sendPost{
+      border: none;
+      font-size: 25px;
+    }
+}

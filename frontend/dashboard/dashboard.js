@@ -1,9 +1,9 @@
+let actualUser = null;
 async function verifyToken() {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        alert("Tu dois d'abord te connecter !");
-        //window.location.href ='../Home/home.html';
+        window.location.href ='../Home/home.html';
         return;
       }
 
@@ -17,17 +17,12 @@ async function verifyToken() {
 
         if (response.ok) {
           const user = await response.json();
-          const statut = document.getElementById("stat");
-         statut.innerText = "Online";
-         statut.style.color ="#9ed70098";
-         const photoProfil = document.getElementById("photoProfil");
-         photoProfil.style.border =" solid #9ed70098  2px";
-         const nom = document.getElementById("Nom");
-         nom.innerText = user.nom;
+          const nom = document.getElementById("user");
+          nom.textContent = user.noms ;
+          actualUser = user ;
 
-         return user ;
+          return user ;
         } else {
-          alert("Token expiré ou invalide !");
           localStorage.removeItem("token");
           //window.location.href = '../login/login.html';
         }
@@ -39,9 +34,9 @@ async function verifyToken() {
     // Vérifie le token dès que la page se charge
     verifyToken();
 
-
-document.getElementById("sendPost").addEventListener("click", (e) => {
+  document.getElementById("sendPost").addEventListener("click", (e) => {
   e.preventDefault();
+async function poster() {
 
   const PostInput = document.getElementById("newPost");
   const libele = PostInput.value.trim();
@@ -66,6 +61,9 @@ document.getElementById("sendPost").addEventListener("click", (e) => {
     left: "2vw",
     margin: "10px 0",
   });
+  if (window.matchMedia("(max-width: 480px)").matches) {
+      newMsg.style.width = "80vw";
+    }
 
   // Création des sous-éléments
   const contentElem = document.createElement("p");
@@ -73,14 +71,21 @@ document.getElementById("sendPost").addEventListener("click", (e) => {
   contentElem.style.margin = "0 0 10px 0";
 
   const timeElem = document.createElement("small");
-  const currentTime = new Date().toLocaleTimeString();
+  const currentTime = new Date().toISOString().split("T")[0];
   timeElem.textContent = ` ${currentTime}`;
   timeElem.style.alignSelf = "flex-end";
   timeElem.style.color = "#555";
 
+  const Sender = document.createElement("h1");
+  Sender.textContent = actualUser.noms;
+  Sender.style.alignSelf = "flex-start";
+  Sender.style.fontSize = "15px"
+
   // Ajouter le texte et l'heure à la div
+  newMsg.appendChild(Sender);
   newMsg.appendChild(contentElem);
   newMsg.appendChild(timeElem);
+  
 
   // Afficher le conteneur si caché
   msgMain.style.display = "flex";
@@ -94,6 +99,40 @@ document.getElementById("sendPost").addEventListener("click", (e) => {
   // Scroll auto si nécessaire
   msgMain.scrollTop = msgMain.scrollHeight;
 
-  console.log("Message envoyé :", libele);
+  const idSender = actualUser.idEtudiant;
+  const nomsSender = actualUser.noms;
+  const dateSende = new Date().toISOString().split("T")[0];
+  const roleSender = actualUser.role;
+  console.log(roleSender);
+
+  try {
+    const token = localStorage.getItem("token");
+    const response = await fetch("http://127.0.0.1:8000/postSend", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ libele, idSender, nomsSender })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.detail || "Erreur lors de l’envoi du message.");
+    }
+
+    console.log("Message envoyé :", libele);
+
+
+  } catch (err) {
+    console.error("Erreur Réseau :", err);
+    alert("Impossible de contacter le serveur !");
+  }
+}
+
+poster();
 });
+
+
 

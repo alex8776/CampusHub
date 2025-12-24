@@ -12,3 +12,13 @@ class Etudiants(Base):
     passw = Column(String(255))
     sexe = Column(String(10), index=True)
     payement = Column(Boolean, default=False)
+
+class Postes(Base):
+    __tablename__="Postes"
+    idPost = Column(Integer,primary_key=True, index=True, unique=True, autoincrement=True)
+    libele = Column(String(30))
+    idSender = Column(String(12))
+    nomsSender = Column(String(30))
+    dateSende = Column(DateTime)
+    roleSender = Column(String(30))
+   

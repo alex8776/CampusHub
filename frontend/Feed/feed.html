@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feed.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <title>Feed</title>
+</head>
+<body>
+    <div class="barre_du_haut">
+        <img class="logo" src="../images/logo.png" alt="logo">
+        <h1 id="nomPage">Accueil</h1>
+    </div>
+    <i class="bi bi-plus-lg" onclick="window.location.href='../dashboard/dashboard.html'" style="color: #53ACD8;" id="plus"></i>
+    
+    
+    <div id="main">
+        <div id="content">
+            <div id="posts"></div>
+        </div>
+        
+    </div>
+
+    <section id="profil">
+        <div id="userInfos">
+            <h1 id="UserNoms">Nom(s) et Prénom(s)</h1>
+            <p id="UserFiliere">philière</p>
+            <p id="UserRole">role</p>
+        </div>
+    </section>
+    <div id="slideBare">
+            <i class="bi bi-house" id="hm" style="color: #fff;"></i>
+            <i class="bi bi-bell"></i>
+            <i class="bi bi-book"></i>
+            <i class="bi bi-chat-text"></i>
+            <i class="bi bi-person" id="pfl"></i>
+        </div>
+    
+    <script src="feed.js"></script>
+</body>
+</html>

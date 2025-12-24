@@ -50,11 +50,12 @@ def autentification(user: userAutent, db: Session = Depends(get_db)):
     if not user_existe:
         raise HTTPException(status_code=400, detail="Utilisateur non trouvé(e) !")
 
-    #pw = user.passw.encode('utf-8')
-    #dbpw = user_existe.passw.encode('utf-8')
+    pw = user.passw.encode('utf-8')
+    dbpw = user_existe.passw.encode('utf-8')
 
-    #if not bcrypt.checkpw(pw, dbpw):
-       # raise HTTPException(status_code=401, detail="Mot de passe incorrecte !")
+
+    if not bcrypt.checkpw(pw, dbpw):
+        raise HTTPException(status_code=401, detail="Mot de passe incorrecte !")
     
 
     access_token = create_access_token(data={"sub": user_existe.idEtudiant})
@@ -69,28 +70,31 @@ def autentification(user: userAutent, db: Session = Depends(get_db)):
 
 @router.get("/users/me")
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
-
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        user_id = payload.get("sub")  # sub = ID de l'utilisateur
+        user_id = payload.get("sub")
 
         if not user_id:
             raise HTTPException(status_code=401, detail="Token invalide")
 
-        # Récupérer l'utilisateur complet
         user = db.query(Etudiants).filter(Etudiants.idEtudiant == user_id).first()
 
         if not user:
             raise HTTPException(status_code=404, detail="Utilisateur introuvable")
 
+        print(user.idEtudiant, user.noms)
         return {
-            "id": user.idEtudiant,
-            "nom": user.noms,
+            "idEtudiant": user.idEtudiant,
+            "noms": user.noms,
+            "prenoms": user.prenoms,
+            "roles": user.roles,
+            "filiere": user.filiere
+
+            # rajoute ce que tu veux
         }
 
     except JWTError:
         raise HTTPException(status_code=401, detail="Token invalide ou expiré")
-
 
 
 

@@ -98,16 +98,16 @@ body{
     width: 400px;
     right: 100px;
     justify-content: center;
-    align-items: center;
+    align-items: center ;
     background-color: white;
     margin-top: 50px;
     box-shadow: 0 0 18px 4px rgb(206, 206, 206);
     border-radius: 20px;
     display: flex;
+    position: absolute;
     flex-direction: column;
     gap: 15px;
     animation: fadeln 6s;
-    animation: slideX1 3s;
     
 }
 
@@ -166,3 +166,57 @@ button:hover{
     100%{transform: translateX(100px);}
 
 }
+
+@media screen and (max-width: 480px){
+    body{
+        overflow-y: hidden;
+        overflow-x: hidden;
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+    .barre_du_haut{
+        display: none;
+    }
+    .main{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .infos{
+        width: 80% ;
+        height: 70% ;
+        display: flex;
+        left : 10%;
+    }
+    .logo2{
+        height: 20vh;
+    }
+    input{
+        border-radius: 10px;
+        height: 40px;
+        width: 80% ;
+        animation: fadeln 6s;
+        border: solid #878888 2px;
+        color: #878888;
+        
+    }
+    button{
+        height: 40px;
+        width: 80% ;
+    }
+    .textes{
+        display: none;
+    }
+
+    .cercle{
+        display: none;
+    }
+
+}
+

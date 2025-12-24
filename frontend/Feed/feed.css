@@ -1,0 +1,152 @@
+body{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+#slideBare{
+    background-color: #53ACD8;
+    border-radius: 40px;
+    height: 56px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    bottom: 0vh;
+    animation: fadeln 2s ;
+}
+.barre_du_haut{
+    background-color: white;
+    border-radius: 40px;
+    height: 56px;
+    width: 100%;
+    top: -48px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    animation: fadeln 2s ;
+}
+.logo{
+    height: 56px;
+    width: auto;
+    animation: fadeln 4s ;
+}
+
+@media screen and (max-width: 480px){
+    body{
+        overflow-y: hidden;
+        overflow-x: hidden;
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+    }
+    #main{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2vh;
+    }
+    .barre_du_haut{
+        height: 30px;
+        width: 80%;
+        margin-left: 15vw;
+    }
+    #slideBare{
+        height: 7vh;
+        width: 90vw;
+        left: 5vw;
+        bottom: 2vh;
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        gap: 10vw;
+    }
+    i{
+        font-size: 25px;
+        color: rgb(172, 215, 252);
+    }
+    .main{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2vh;
+    }
+    .logo{
+        height: 56px;
+        width: auto;
+        position: absolute;
+        top: 0px;
+        left: 1vw;
+        animation: fadeln 4s ;
+    }
+    h1{
+        font-size: 25px;
+        margin-top: 1vh;
+        color: #53ACD8;
+    }
+    .bi-plus-lg{
+        width: auto;
+        position: absolute;
+        top: 3vh;
+        margin-left: 80vw;
+        animation: fadeln 4s ;
+    }
+    #content{
+        max-height: 80vh;
+        width: 100vw;
+        display: flex;
+        position: absolute;
+        top: 10vh;
+        left: 0vw; 
+        justify-content: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    #profil{
+        width: 100vw;
+        height: 70vh;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 10vh;
+        left: 0;
+    }
+
+    #userInfos{
+        width: 90vw;
+        height: 20vh;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        background-color: #53ACD8;
+    }
+
+    #UserNoms{
+        color: #fff;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: flex;
+        margin-top: 7vh;
+        margin-left: 5vw;
+    }
+
+    #UserFiliere{
+        color: #fff;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: flex;
+        margin-top: 5px;
+        margin-left: 5vw;
+    }
+    #UserRole{
+        color: #fffc31;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: flex;
+        margin-top: -5vh;
+        margin-left: 70vw;
+    }
+}
